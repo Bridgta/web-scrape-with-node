@@ -1,0 +1,24 @@
+{
+  "name": "nodewebscrape",
+  "version": "1.0.0",
+  "description": "web-scrape-with-node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bridgta/web-scrape-with-node.git"
+  },
+  "author": "Bridget Asser",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bridgta/web-scrape-with-node/issues"
+  },
+  "homepage": "https://github.com/Bridgta/web-scrape-with-node#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  }
+}
