@@ -5,7 +5,43 @@ var cheerio = require("cheerio");
 var app = express();
 
 app.get("/scrape", function(req, res) {
-  //All the web scraping magic will happen here
+  url = "http://www.imdb.com/title/tt1229340/";
+
+  request(url, function(error, response, html) {
+    if (!error) {
+      var $ = cheerio.load(html);
+
+      var title, release, rating;
+      var json = { title: "", release: "", rating: "" };
+
+      $(".header").filter(function() {
+        var data = $(this);
+        title = data
+          .children()
+          .first()
+          .text();
+
+        release = data
+          .children()
+          .last()
+          .children()
+          .text();
+
+        json.title = title;
+        json.release = release;
+      });
+
+      $(".star-box-giga-star").filter(function() {
+        var data = $(this);
+
+        //  no need to traverse the DOM any further
+
+        rating = data.text();
+
+        json.rating = rating;
+      });
+    }
+  });
 });
 
 app.listen("8081");
